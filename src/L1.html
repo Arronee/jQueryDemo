@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一节</title>
+
+    <!--使用 Google 的 CDN-->
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.4.0/jquery.min.js"></script>-->
+
+    <!--使用 Microsoft 的 CDN-->
+    <!--<script type="text/javascript" src="http://ajax.microsoft.com/ajax/jquery
+/jquery-1.4.min.js"></script>-->
+
+    <!--使用本地的jQuery库-->
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("p").click(function () {
+                $(this).hide();
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+<p>点我消失</p>
+<p>点我还消失</p>
+</body>
+
+
+</html>
