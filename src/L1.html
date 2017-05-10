@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>第一节</title>
 
+    <!--导入Vue.js-->
+    <script type="text/javascript" src="vue.js"></script>
+
+
     <!--使用 Google 的 CDN-->
     <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
 /jquery/1.4.0/jquery.min.js"></script>-->
@@ -15,12 +19,77 @@
     <!--使用本地的jQuery库-->
     <script type="text/javascript" src="jquery.js"></script>
 
+
+    <!--导入bootstrap-->
+    <link rel="stylesheet" href = css/bootstrap.min.css>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $("p").click(function () {
+
+            var isOpen = false;
+
+            //点击ID为test的p标签，消失
+            $("p#test").click(function () {
                 $(this).hide();
             });
+
+            $("p#test1").click(function () {
+                alert('还是不消失，想知道为什么，看源码呀');
+            });
+
+            //点击类class1的p标签，进行相应的处理
+            $("p.class1").click(function () {
+                alert("哈哈，就是不消失");
+            });
+
+            //点击了a标签属性为.jpg的跳转
+            $("[href$='.jpg']").click(function () {
+
+                alert('点击了a标签属性为.jpg的跳转');
+            });
+
+
+            //图片的放大与缩小之单击事件
+            $("img#imgTest").click(function () {
+                if (isOpen){
+                    $("img#imgTest").css({"width":"50px","height":"50px"});
+
+                }else {
+                    $("img#imgTest").css({"width":"300px","height":"300px"});
+                }
+                isOpen = !isOpen;
+            });
+
+            //图片的双击事件（由于是用bootstrap模态化弹出，故不会执行该方法）
+            $("img#imgTest1").dblclick(function () {
+                
+            });
+
+            //jQuery的显示与隐藏
+            $("#show").click(function () {
+                $("p#p1").show();
+            });
+
+            $("#hidden").click(function () {
+                $("p#p1").hide();
+            });
+            
+            $("#toggle").click(function () {
+                $("p#p1").toggle();
+            });
+
+            //淡出和淡入效果
+            $("#fadeoutID").click(function () {
+                $("#p2").fadeOut();
+            });
+            $("#fadeinID").click(function () {
+                $("#p2").fadeIn();
+                //$("#p2").fadeToggle();
+
+            });
+
         });
 
     </script>
@@ -28,9 +97,71 @@
 </head>
 <body>
 
-<p>点我消失</p>
-<p>点我还消失</p>
+<div>
+    <p style="color: red;font-size: 20px;">这是jQuery的选择器</p>
+    <p class="class1">类1,点我消失</p>
+    <p class="class1">类1，点我消失</p>
+    <p id="test">ID1，点我消失</p>
+    <p id="test1">ID2，点我消失</p>
+</div>
+
+<div>
+    <p style="color: red;font-size: 20px">这是jQuery的点击事件</p>
+    <a href="test.html">点击跳转测试</a><br>
+    <a href="../res/timg.jpg">图片测试</a><br>
+    <img id="imgTest" src="../res/timg.jpg" style="width: 50px;height: 50px"><br>
+
+</div>
+
+<div>
+    <p style="color: red;font-size: 20px">这是bootstrap效果</p>
+
+
+    <button type="button" class="btn">基本按钮</button>
+    <!-- 标准的按钮 -->
+    <button type="button" class="btn btn-default">默认按钮</button>
+    <!-- 提供额外的视觉效果，标识一组按钮中的原始动作 -->
+    <button type="button" class="btn btn-primary">原始按钮</button>
+    <!-- 表示一个成功的或积极的动作 -->
+    <button type="button" class="btn btn-success">成功按钮</button>
+    <!-- 信息警告消息的上下文按钮 -->
+    <button type="button" class="btn btn-info">信息按钮</button>
+    <!-- 表示应谨慎采取的动作 -->
+    <button type="button" class="btn btn-warning">警告按钮</button>
+    <!-- 表示一个危险的或潜在的负面动作 -->
+    <button type="button" class="btn btn-danger">危险按钮</button>
+    <!-- 并不强调是一个按钮，看起来像一个链接，但同时保持按钮的行为 -->
+    <button type="button" class="btn btn-link">链接按钮</button>
+
+
+</div>
+
+<div>
+    <p style="color: red;font-size: 20px">这是bootstrap模态框（Modal）插件</p>
+
+    <img id="imgTest1" src="../res/timg.jpg" style="width: 50px;height: 50px"  data-toggle="modal" data-target="#myModal"><br>
+
+
+</div>
+<div class="modal fade" id="myModal" >
+        <img src="../res/timg.jpg" style="width: 300px;height: 300px;display:block; margin:0 auto;">
+</div>
+
+<div>
+    <p style="color: red;font-size: 20px">这是jQuery效果</p>
+
+    <button id="show" type="button" class="btn btn-success">显示</button>
+    <button id="hidden" type="button" class="btn btn-success">隐藏</button>
+    <button id="toggle" type="button" class="btn btn-success">toggle</button>
+    <button id="fadeoutID" type="button" class="btn btn-success">淡出效果</button>
+    <button id="fadeinID" type="button" class="btn btn-success">淡入效果</button>
+
+    <p id="p1">哈哈，我显示出来了</p>
+    <p id="p2">这是淡出效果</p>
+    <p>这是测试字段，哈哈我是测试</p>
+
+
+</div>
+
 </body>
-
-
 </html>
