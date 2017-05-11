@@ -85,9 +85,21 @@
                 $("#p2").fadeOut();
             });
             $("#fadeinID").click(function () {
-                $("#p2").fadeIn();
+                //$("#p2").fadeIn();
                 //$("#p2").fadeToggle();
+                $("#p2").slideToggle()
+            });
 
+
+            //jQuery的动画
+            $("button#animate").click(function () {
+                $("p#p3").css({"position":"relative"});
+                $("p#p3").animate({left:'200px'});
+            });
+
+            //jQuery的Chaining
+            $("button#Chaining").click(function () {
+                $("p#p4").css("color","red").slideUp(2000).slideDown(2000);
             });
 
         });
@@ -160,6 +172,18 @@
     <p id="p2">这是淡出效果</p>
     <p>这是测试字段，哈哈我是测试</p>
 
+
+</div>
+
+<div>
+    <p style="color: red;font-size: 20px">这是jQuery动画</p>
+
+    <button id="animate" type="button" class="btn btn-success">动画</button>
+
+    <button id="Chaining" type="button" class="btn btn-success">Chaining</button>
+
+    <p id="p3">我是动画字体</p>
+    <p id="p4">我是Chaining的测试字段</p>
 
 </div>
 
