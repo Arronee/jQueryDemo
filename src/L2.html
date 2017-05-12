@@ -47,10 +47,61 @@
                 $('#test').text($('#input').val());
 
             });
+            
+            //jQuery操作CSS增加类
+            $('#addCssClass').click(function () {
+                $('p#p1').addClass('second');
+            });
+
+            //jQuery操作CSS删除类
+            $('#deleCssClass').click(function () {
+                $('p#p1').removeClass('first');
+            });
+
+            //jQuery操作CSS增加删除类
+            $('#addDeleCssClass').click(function () {
+                $('p#p1').toggleClass('second');
+            });
+            
+            //jQuery对CSS的操作
+            $('#changeCSS').click(function () {
+                //返回ID为p2的p标签的color属性值
+                //alert($('p#p2').css('color'));
+
+                //设置CSS的样式
+                $('#p2').css({'color':'black','font-size':"20px"});
+
+            });
+
+            //获取CSS样式的大小
+            $('#showCSSSize').click(function () {
+                var txt = '';
+                txt+='div的宽度是：'+$('#div1').width()+'<br>';
+                txt+='div的高度是:'+$('#div1').height();
+                $('#div1').html(txt);
+
+            });
 
         });
 
     </script>
+
+    <style type="text/css">
+
+        .first{
+            color: black;
+            font-size: 20px;
+        }
+
+        .second{
+            color: red;
+            font-size: 40px;
+        }
+
+        #p2{
+            color: red;
+        }
+    </style>
 </head>
 <body>
 
@@ -69,5 +120,29 @@
 
 
 </div>
+
+<div>
+    <p style="color: red;font-size: 20px">jQuery之css的操作</p>
+
+    <button id="addCssClass" type="button" class="btn btn-success">jQuery操作CSS增加类</button>
+    <button id="deleCssClass" type="button" class="btn btn-success">jQuery操作CSS删除类</button>
+    <button id="addDeleCssClass" type="button" class="btn btn-success">jQuery操作CSS增加删除类</button>
+
+    <p id="p1" class="first">这是jQuery操作CSS的字体</p>
+
+</div>
+    <p style="color: red;font-size: 20px">jQuery之css()方法，css() 方法设置或返回被选元素的一个或多个样式属性</p>
+
+    <button id="changeCSS" type="button" class="btn btn-success">jQuery操作CSS增加类</button>
+
+    <p id="p2">做测试真光荣啊，我是测试字段！！！！！！！！</p>
+
+<div>
+    <p style="color: red;font-size: 20px">jQuery的尺寸</p>
+    <div id="div1" style="height:100px;width:300px;padding:10px;margin:3px;border:1px solid blue;background-color:lightblue;"></div>
+    <button id="showCSSSize" type="button" class="btn btn-success">显示CSS的大小</button>
+
+</div>
+
 </body>
 </html>
