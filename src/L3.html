@@ -20,13 +20,21 @@
         //当文档在完全加载（就绪）进行相应的jQuery操作
         $(document).ready(function () {
 
+            $('#btn1').click(function () {
+                $('#p1').parent().css({'color':'yellow','border':'2px solid red'});
+            });
+
         });
     </script>
 </head>
 <body>
 
 <div>
-    <p style="color:red;font-size:20px">开始第三节课了</p>
+    <p style="color:red;font-size:20px">jQuery的遍历</p>
+    <div id="test">
+        <p id="p1"><span>这是测试</span></p>
+        <button id="btn1" type="button" class="btn btn-success">jQuery的遍历</button>
+    </div>
 
 </div>
 </body>
