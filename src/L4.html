@@ -20,11 +20,65 @@
         //当文档在完全加载（就绪）进行相应的jQuery操作
         $(document).ready(function () {
 
+            //load
+            $('#btn1').click(function () {
+                //$('#test').load('../res/test.txt');
+                $('#test').load('../res/test.txt #p1');
+            });
+            
+            $('#btn2').click(function () {
+               $('#test').load('../res/test.txt',function (responseTxt,statusTxt,xhr) {
+                   if(statusTxt == 'success'){
+                       alert('外部内容加载成功:'+responseTxt);
+                   }
 
+                   if(statusTxt=="error")
+                       alert("Error: "+xhr.status+": "+xhr.statusText);
+               });
+            });
+
+            //get
+            $('#btn3').click(function () {
+                $.get('../res/test.php',function (data,status) {
+                    alert('数据：'+data+"\n状态"+status);
+                });
+            });
+            
+            //post
+            $('#btn4').click(function () {
+                $.post('../res/test-post.php',{name:"cainia",url:"www.baidu.com"},function (data,status) {
+                    alert("数据: \n" + data + "\n状态: " + status);
+                });
+            });
+            
         });
     </script>
 </head>
 <body>
 
+<div>
+    <p style="color:red;font-size:20px">jQuery之Ajax之load测试</p>
+    <p id="test">这是更换之前的文字</p>
+    <div>
+        <button id="btn1" type="button" class="btn btn-success">Ajax之load测试一</button><br>
+    </div>
+    <div>
+        <button id="btn2" type="button" class="btn btn-success">Ajax之load测试二</button><br>
+    </div>
+
+
+</div>
+
+<div>
+    <p style="color:red;font-size:20px">jQuery之Ajax之get和post的测试</p>
+
+    <p id="test1">这是更换之前的文字</p>
+
+    <button id="btn3" type="button" class="btn btn-success">Ajax之get</button><br>
+
+    <button id="btn4" type="button" class="btn btn-success">Ajax之post</button><br>
+
+
+</div>
 </body>
 </html>

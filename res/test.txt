@@ -1,0 +1,2 @@
+这是jQuery的Ajax的load测试，测试最光荣！！！！！
+<p id="p1">这是test.txt中ID为p1的字段</p>
