@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery UI</title>
+    <!--导入Vue.js-->
+    <script type="text/javascript" src="vue.js"></script>
+
+    <!--使用本地的jQuery库-->
+    <script type="text/javascript" src="jquery.js"></script>
+
+
+    <!--导入bootstrap-->
+    <link rel="stylesheet" href = css/bootstrap.min.css>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/jquery-ui.min.js"></script>
+
+
+
+    <script>
+
+
+        $(document).ready(function () {
+
+            //此方法初次点击的时候不会唤起日期选择器
+//            $('#name').click(function () {
+//                console.log('zoulezhegefangfa');
+//                $('#name').datepicker();
+//            });
+
+//            $('#name').datepicker();
+
+            //此方法初次点击的时候会唤起日期选择器
+//            $(function () {
+//                $('#name').datepicker();
+//
+//            });
+            $('#btn1').click(function () {
+                /*
+                var person = {
+                    name:'lee',
+                    sex:'nan',
+                    address:'haha',
+                    setName:function () {
+                        return 'haha';
+                    }
+                }
+
+                alert(person.name);*/
+                var a = [1,2,3,4];
+                var b =[1,2,3,4];
+                if (a.toString()===b.toString()){
+                    alert('啊啊啊啊啊');
+                }
+                alert(typeof a);
+            });
+
+        });
+    </script>
+    
+</head>
+<body>
+<p style="color:red;font-size:20px">日期选择器</p>
+<input type="text" id="name" >
+<button id="btn1" type="button" class="btn btn-success">日期选择器</button>
+
+
+</body>
+</html>
